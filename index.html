@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script src="./jquery.min.js"></script>
+  <script src="./three.min.js"></script>
+  <script src="./leap.js"></script>
+  <script src="./leap-plugins.js"></script>
+  <script src="./leap-rigged-hand.js"></script>
+  <script src="./app.js"></script>
+  <script type="text/javascript">
+    // Show 3d hand creds to https://github.com/leapmotion/leapjs-rigged-hand
+    $(function() {
+      window.controller
+      .use('riggedHand', {
+        scale: 1,
+        dotsMode: true
+      })
+      .connect();
+    });
+  </script>
+  <style type="text/css">
+    html, body, h1, h2, h3, h4, h5, p {
+      font-family: sans-serif;
+    }
+    .current-letter {
+      margin-left: 40px;
+      font-size: 100px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Leap ASL</h1>
+  <p>Bring your hand over the Leap, and you should see it displayed</p>
+  <p>Press the spacebar to record your hand position and teach the letter</p>
+
+  <h2>Current Letter:<strong><span class="current-letter"></span></strong></h2>
+  <h2>Recorded Letters:</h2>
+  <div class="recorded-letters"></div>
+</body>
+</html>
